@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+    
+ <head>
+    <title>Document</title>
+    <style>
+    .card {
+        background-color:  rgba(237, 237, 237, 0.975);
+            border: 3px solid rgb(30, 41, 27);
+            border-radius: 5px;
+            padding: 10px;
+            margin:20px 0;
+            box-shadow: 10px 10px 8px #888888;
+            }
+    .btn {
+            background-color: ;
+            margin-top: 5px;
+            border:2px solid rgb(163, 163, 163);
+            border-radius: 1px;
+        }
+        .btn:hover {
+            box-shadow: inset;
+            cursor: pointer;
+            transition: all .5s ease-in-out  ;
+            background-color: rgb(163, 163, 163);
+              box-shadow: 10px 10px 8px #888888;
+         }
+    input,select,textarea {
+            display: block;
+            width: 97%;
+        }
+    </style>
+ </head>
+ <body>
+    <div class="card">
+            <form 
+        action="submit.php" 
+        method="post" 
+        class="log-form">
+
+            <!-- start the first input with its label -->
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="fullname" class="form-input"/>
+            <!-- end the first input with its label -->
+
+            <!-- start the second input with its label -->
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" class="form-input"/>
+            <!-- end the second input with its label -->
+
+            <!-- start the select with its label -->
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" class="form-input">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+            <!-- end the select input with its label -->
+
+            <!-- start the textarea with its label -->
+            <label for="message">Message:</label>
+            <textarea   class="form-input"
+                        id="message" 
+                        name="message" 
+                        rows="4" 
+                        cols="30"></textarea>
+            <!-- end the textarea with its label -->
+
+        <button type="submit" class="btn" >send data</button>
+    </form>
+    </div>
+     <div class="card">
+        <table class="table" border="1">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Subject</th>
+          <th>Grade</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Ahmed</td>
+          <td>Math</td>
+          <td>95</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Salma</td>
+          <td>Science</td>
+          <td>88</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>sami</td>
+          <td>geography</td>
+          <td>75</td>
+        </tr>
+        
+      </tbody>
+      <button type="submit" class="btn" >table</button>
+    </table>
+    </div>
+     <div class="card">
+        <h3>Shopping List:</h3>
+    <ul class="first-ul">
+      <li>Milk</li>
+      <li>Bread</li>
+      <li>Eggs</li>
+    </ul>
+    <button type="submit" class="btn" >show more</button>
+    </div>
+ </body>
+
+</html>

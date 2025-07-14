@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JS Grade Checker</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Roboto;
+            padding-top: 70px;
+            background-color:#f0f0f0;
+        }
+        input {
+            margin: 20px;
+        }
+        button {
+           background-color:  #333;
+           color: white;
+        }
+        button:active {
+            transition: all 5ms ease-in-out;
+            background-color:rgb(155, 154, 154);
+            box-shadow: inset;
+        }
+        button:hover {
+            box-shadow: 5px 5px 5px rgba(0,0,0,.15);
+            cursor: pointer;
+        }
+        .all {
+            align-content: center;
+            text-align: center;
+            justify-content: center;
+            border: 2px solid lightgray;
+            background-color: rgb(255, 255, 255);
+            padding: 10px;
+            margin: 0 auto;
+            width: fit-content;
+            padding-bottom: 20px;
+            box-shadow: 5px 5px 5px rgba(0,0,0,.15);
+            
+        }
+        .text {
+            color: rgb(1, 139, 1);
+            width: fit-content;
+            margin:20px auto;
+            align-content: center;
+            text-align: center;
+
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="all">
+        
+        <input type="text" id="name" required placeholder="type your name">
+        <br>
+        <input type="number" id="deg" required placeholder="deg in number">
+        <br>
+        <button onclick="saywelcome()">احسب التقدير</button>
+    </div>
+    <div class="text">
+    <h1 id="output"></h1>
+    <h3 id="show"></h3>
+    </div>
+
+    <script>
+        function saywelcome() {
+            let name = document.getElementById("name").value;
+            let degree = Number(document.getElementById("deg").value);
+
+            document.getElementById("output").innerHTML = "Welcome, " + name;
+
+             if (degree > 100 || degree < 0) {
+                alert("Out of Range : [0,100]");
+            } else if (degree >= 85) {
+                document.getElementById("show").innerHTML = "ممتاز";
+            } else if (degree >= 75) {
+                document.getElementById("show").innerHTML = "جيد جداً";
+            } else if (degree >= 65) {
+                document.getElementById("show").innerHTML = "جيد";
+            } else if (degree >= 50) {
+                document.getElementById("show").innerHTML = "مقبول";
+            } else {
+                document.getElementById("show").innerHTML = "راسب";
+            }
+
+        }
+    </script>
+</body>
+</html>
