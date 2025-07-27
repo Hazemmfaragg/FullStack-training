@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+ <div id="read-data"></div>
+    <script>
+
+        fetch("http://localhost/session/day10/api_test.php").
+    then(response =>{
+        return response.json()
+    }).then(data=>{
+        if(data.connection)
+           data.data.forEach(item =>{
+        console.log(item);
+        })
+        else{
+            alert(data.message);
+        }
+        })
+    
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+</body>
+</html>
