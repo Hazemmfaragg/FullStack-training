@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #cedcd7;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            max-width: 300px;
+            margin: auto;
+            background-color: rgb(2, 150, 101);
+            border: 1px solid #3bb2ed; 
+            border-radius: 3px;
+        }
+        input[type="text"],
+        input[type="number"] {
+           
+            padding: 8px;
+            font-size: 16px;
+            width: 80%;
+            margin: 10px auto;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        input[type="submit"] {
+            padding: 10px 0px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 87%;
+            margin: 10px auto;
+            margin-top: 0px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        input[type="submit"]:hover {
+            background-color: #020202;
+            color: white;
+        }
+        table {
+            width: 100%;
+            margin-top: 20px;
+            
+        }
+    </style>
+</head>
+<body>
+    <form action="" method="POST" id="form">
+        <input type="text" id="title" name="title" placeholder="Enter title">
+        <input type="text" id="description" name="description" placeholder="Enter description" >
+        <input type="number" step="any" id="hours" name="hours" placeholder="Enter hours" >
+        <input type="number" step="any" id="price" name="price" placeholder="Enter price" >
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <table border="1">
+        <tr>
+            <th>Status</th>
+            <th>Message</th>
+        </tr>
+    </table>
+    <script>
+    var form = document.getElementById('form');
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        var title = document.getElementById('title').value;
+        var description = document.getElementById('description').value;
+        var hours = document.getElementById('hours').value;
+        var price = document.getElementById('price').value;
+
+        fetch('post.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                title: title,
+                description: description,
+                hours: hours,
+                price: price
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${data.status}</td>
+                <td>${data.message}</td>
+            `;
+            document.querySelector('table').appendChild(row);
+            form.reset(); 
+        })
+        
+    });
+</script>
+
+</body>
+</html>
