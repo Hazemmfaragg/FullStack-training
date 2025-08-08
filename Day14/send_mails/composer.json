@@ -1,0 +1,16 @@
+{
+    "name": "aman/send_mails",
+    "autoload": {
+        "psr-4": {
+            "Aman\\SendMails\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "hazem"
+        }
+    ],
+    "require": {
+        "phpmailer/phpmailer": "^6.10"
+    }
+}
